@@ -25,7 +25,7 @@ public class MazeMaker{
 		
 		
 		//5. call selectNextPath method with the randomly selected cell
-		
+		selectNextPath(uncheckedCells.get(randGen.nextInt(uncheckedCells.size())));
 		
 		return maze;
 	}
