@@ -33,11 +33,15 @@ public class MazeMaker{
 	//6. Complete the selectNextPathMethod
 	private static void selectNextPath(Cell currentCell) {
 		//A. mark cell as visited
-
+			currentCell.setBeenVisited(true);
 		//B. check for unvisited neighbors using the cell
-		
+		    getUnvisitedNeighbors(currentCell);
 		//C. if has unvisited neighbors,
-		
+		if(getUnvisitedNeighbors(currentCell).size()>0) {
+			Cell random = uncheckedCells.get(randGen.nextInt(getUnvisitedNeighbors(currentCell).size()));
+			uncheckedCells.push(random);
+			removeWalls(currentCell, random);currentCell = random; random.setBeenVisited(true);
+		}
 			//C1. select one at random.
 			
 			//C2. push it to the stack
@@ -48,13 +52,15 @@ public class MazeMaker{
 			
 			
 		//D. if all neighbors are visited
-		
+		if(getUnvisitedNeighbors(currentCell).size()==0) {
 			//D1. if the stack is not empty
-			
+				if(uncheckedCells.size()>0) {
 				// D1a. pop a cell from the stack
-		
+					currentCell  = uncheckedCells.pop();
 				// D1b. make that the current cell
-				
+					
+				}	
+		}
 			
 		
 	}
@@ -63,13 +69,31 @@ public class MazeMaker{
 	//   This method will check if c1 and c2 are adjacent.
 	//   If they are, the walls between them are removed.
 	private static void removeWalls(Cell c1, Cell c2) {
-		
+		//HELP ME!!! HOW DO I DO THIS!!!
 	}
 	
 	//8. Complete the getUnvisitedNeighbors method
 	//   Any unvisited neighbor of the passed in cell gets added
 	//   to the ArrayList
 	private static ArrayList<Cell> getUnvisitedNeighbors(Cell c) {
-		return null;
+		ArrayList<Cell>cell = new ArrayList<Cell>();
+		Cell thing = maze.getCell(c.getX()+100, c.getY());
+		if(thing.hasBeenVisited()==false) {
+			cell.add(thing);
+		}
+		thing = maze.getCell(c.getX()-100, c.getY());
+		if(thing.hasBeenVisited()==false) {
+			cell.add(thing);
+		}
+		thing = maze.getCell(c.getX(), c.getY()+100);
+		if(thing.hasBeenVisited()==false) {
+			cell.add(thing);
+		}
+		thing = maze.getCell(c.getX(), c.getY()-100);
+		if(thing.hasBeenVisited()==false) {
+			cell.add(thing);
+		}
+		
+		return cell;
 	}
 }
