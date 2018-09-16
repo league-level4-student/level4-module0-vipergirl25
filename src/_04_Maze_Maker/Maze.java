@@ -23,7 +23,8 @@ public class Maze {
 				cells[i][j]= new Cell(i,j);
 			}
 		}
-		
+		cells[0][0].setNorthWall(false);
+		cells[width-1][height-1].setSouthWall(false);
 	}
 
 	//4. This method iterates through the cells and draws them
