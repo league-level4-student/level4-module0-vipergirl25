@@ -31,8 +31,8 @@ public class Cell {
 	}
 	
 	public void draw(Graphics g){
-		g.setColor(Color.BLUE);
-		g.fillOval((x * size) + (size / 2) + X_MARGIN, (y * size) + (size / 2) + Y_MARGIN, 4, 4);
+		//g.setColor(Color.BLUE);
+		//g.fillOval((x * size) + (size / 2) + X_MARGIN, (y * size) + (size / 2) + Y_MARGIN, 4, 4);
 		
 		g.setColor(Color.RED);
 		if(northWall){

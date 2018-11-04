@@ -12,8 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class ConwaysGameOfLife extends JPanel implements ActionListener{
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;¡
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 500;
 	public static final int CELLS_PER_ROW = 50;
